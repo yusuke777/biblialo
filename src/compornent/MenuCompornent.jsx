@@ -17,7 +17,9 @@ class AppContainer extends React.Component{
 
    render(){
       return (
+        <div className={this.props.classes.root}>
         <h1>unko</h1>
+        </div>
     );
    }
 }

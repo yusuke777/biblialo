@@ -19,7 +19,9 @@ class AppContainer extends React.Component{
 
    render(){
       return (
-        <h1>{this.props.store.hoge}</h1>
+        <div className={this.props.classes.root}>
+        <h1 >{this.props.store.hoge}</h1>
+        </div>
     );
    }
 }

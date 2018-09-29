@@ -21,7 +21,8 @@ class HeaderContainer extends React.Component{
 
    render(){
       return (
-        <Grid container spacing={8}>
+        <div className={this.props.classes.root} >
+            <Grid container spacing={8} >
             <Grid item xs={6}>
                 <LogoCompornent store={this.props.store}/>
             </Grid>
@@ -31,7 +32,8 @@ class HeaderContainer extends React.Component{
             <Grid item xs={12}>
                 <MenuCompornent />
             </Grid>
-          </Grid>
+            </Grid>
+         </div>
     );
    }
 }

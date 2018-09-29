@@ -17,7 +17,9 @@ class ContentsContainer extends React.Component{
 
    render(){
       return (
-        <h1>unko</h1>
+        <div className={this.props.classes.root} >
+        <h1 >unko</h1>
+        </div>
     );
    }
 }

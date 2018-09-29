@@ -10,6 +10,8 @@ const styles = theme => ({
    root: {
      flexGrow: 1
    }
+   
+
 });
 
 @observer
@@ -20,6 +22,7 @@ class SearchCompornent extends React.Component{
 
    render(){
       return (
+        <div className={this.props.classes.root}>
         <TextField
          label="Search"
          variant="outlined"
@@ -39,6 +42,7 @@ class SearchCompornent extends React.Component{
           ),
         }}
         />
+        </div>
       );
    }
 }

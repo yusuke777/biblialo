@@ -5,13 +5,20 @@ import HeaderContainer from "./HeaderContainer";
 import SidebarContainer from "./SidebarContainer";
 import ContentsContainer from "./ContentsContainer";
 import DataStore from "../logic/store";
+import Paper from '@material-ui/core/Paper';
+
 
 const mystore = new DataStore();
 
 const styles = theme => ({
    root: {
      flexGrow: 1
-   }
+   },
+   paper: {
+    ...theme.mixins.gutters(),
+    paddingTop: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit * 2,
+  }
 });
 
 class AppContainer extends React.Component{
@@ -23,18 +30,27 @@ class AppContainer extends React.Component{
 
    render(){
       return (
-          <Grid container spacing={8}
-           >
-            <Grid item xs={12}>
-                <HeaderContainer store={mystore}/>
+         <div className={this.props.classes.root}>
+         <Paper className={this.props.classes.paper}>
+            <Grid container spacing={8}>
+                <Grid item xs={12} >
+                <Paper className={this.props.classes.paper}>
+                    <HeaderContainer store={mystore}/>
+                </Paper>
+                </Grid>
+                <Grid item xs={4}>
+                    <Paper className={this.props.classes.paper}>
+                    <SidebarContainer />
+                    </Paper>
+                </Grid>
+                <Grid item xs={8}>
+                    <Paper className={this.props.classes.paper}>
+                     <ContentsContainer />
+                    </Paper>
+                </Grid>
             </Grid>
-            <Grid item xs={4}>
-                <SidebarContainer />
-            </Grid>
-            <Grid item xs={8}>
-                <ContentsContainer />
-            </Grid>
-          </Grid>
+            </Paper>
+          </div>
       );
    }
 }
