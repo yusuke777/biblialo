@@ -1,4 +1,3 @@
-うんこ
 ## 使い方 @delmontz 
 ▶カレントに移動 インストール package.js内のモジュールがDLされる  
 `npm install または yarn install`  
