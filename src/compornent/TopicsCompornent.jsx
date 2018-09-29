@@ -8,20 +8,16 @@ const styles = theme => ({
    }
 });
 
-class AppContainer extends React.Component{
-   
+class TopicsCompornent extends React.Component{
    constructor(props){
       super(props);
-      
    }
 
    render(){
       return (
-        <div className={this.props.classes.root}>
         <h1>unko</h1>
-        </div>
     );
    }
 }
 
-export default withStyles(styles)(AppContainer);
+export default withStyles(styles)(TopicsCompornent);

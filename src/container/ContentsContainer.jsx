@@ -1,7 +1,6 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 
-
 const styles = theme => ({
    root: {
      flexGrow: 1
@@ -9,16 +8,14 @@ const styles = theme => ({
 });
 
 class ContentsContainer extends React.Component{
-   
    constructor(props){
       super(props);
-      
    }
 
    render(){
       return (
         <div className={this.props.classes.root} >
-        <h1 >unko</h1>
+        <h1 >Good evening</h1>
         </div>
     );
    }

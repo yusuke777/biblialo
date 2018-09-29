@@ -8,7 +8,7 @@ const styles = theme => ({
    }
 });
 
-class AppContainer extends React.Component{
+class BooksCompornent extends React.Component{
    constructor(props){
       super(props);
    }
@@ -20,4 +20,4 @@ class AppContainer extends React.Component{
    }
 }
 
-export default withStyles(styles)(AppContainer);
+export default withStyles(styles)(BooksCompornent);

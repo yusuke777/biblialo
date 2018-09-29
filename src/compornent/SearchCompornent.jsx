@@ -9,9 +9,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 const styles = theme => ({
    root: {
      flexGrow: 1
-   }
-   
-
+   },
 });
 
 @observer
