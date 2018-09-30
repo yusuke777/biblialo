@@ -1,12 +1,12 @@
-import React from "react";
+import React, { Component, PropTypes } from 'react';
 import { withStyles } from "@material-ui/core/styles";
+import GoogleAd from './google_ad';
 
 
-const styles = theme => ({
-   root: {
-     flexGrow: 1
-   }
-});
+const style = {
+  marginTop: '15px',
+  marginBottom: '20px'
+};
 
 class AdCompornent extends React.Component{
    constructor(props){
@@ -15,8 +15,13 @@ class AdCompornent extends React.Component{
 
    render(){
       return (
-        <h1>unko</h1>
-    );
+        <GoogleAd 
+        client="ca-pub-1690258357415635" 
+        slot="5628944161" 
+        format="auto" 
+        wrapperDivStyle={style}
+      />
+      );
    }
 }
 
