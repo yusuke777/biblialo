@@ -21,10 +21,10 @@ class HeaderContainer extends React.Component{
       return (
         <div className={this.props.classes.root} >
             <Grid container spacing={8} >
-                <Grid item xs={6}>
+                <Grid item xs={4}>
                     <LogoCompornent store={this.props.store}/>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={8}>
                     <SearchCompornent store={this.props.store}/>
                 </Grid>
             </Grid>
