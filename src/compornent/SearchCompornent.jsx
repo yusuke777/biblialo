@@ -10,9 +10,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-
-
-
 const styles = theme => ({
     root: {
       flexGrow: 1
@@ -36,7 +33,7 @@ class SearchCompornent extends React.Component{
       super(props);
    }
    state = {
-    age: '',
+    keyword: '',
     open: false,
   };
   handleChange = event => {
@@ -59,7 +56,6 @@ class SearchCompornent extends React.Component{
          onChange={event =>{
           this.props.store.changeValue(event.target.value)
          }}
-         
          InputProps={{
           endAdornment: (
             <InputAdornment position="end">
@@ -70,21 +66,13 @@ class SearchCompornent extends React.Component{
                     open={this.state.open}
                     onClose={this.handleClose}
                     onOpen={this.handleOpen}
-                    value={this.state.age}
-                    onChange={this.handleChange}
-                    inputProps={{
-                      name: 'age',
-                      id: 'demo-controlled-open-select',
-                    }}
+                    value={this.props.store.bookSearchState}
+                    onChange={this.props.store.changeBookSearchState}
                   >
-                    <MenuItem value="">
-                      <em>None</em>
-                    </MenuItem>
-                    <MenuItem value={10}>Title</MenuItem>
-                    <MenuItem value={20}>Author</MenuItem>
-                    <MenuItem value={30}>Publisher</MenuItem>
-                    <MenuItem value={40}>JAN code</MenuItem>
-                    <MenuItem value={50}>ISBN code</MenuItem>
+                    <MenuItem value={'Title'}>Title</MenuItem>
+                    <MenuItem value={'Author:'}>Author</MenuItem>
+                    <MenuItem value={'Publisher'}>Publisher</MenuItem>
+                    <MenuItem value={'ISBN code'}>ISBN code</MenuItem>
                   </Select>
                 </FormControl>
               </form>
@@ -95,6 +83,7 @@ class SearchCompornent extends React.Component{
               </IconButton>
             </InputAdornment>
           ),
+          
         }}
         />
         </div>
