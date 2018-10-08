@@ -94,7 +94,6 @@ class AppContainer extends React.Component{
                 </Grid>
             </Grid>
             </Paper>
-            <GoogleBooksAPI />
           </div>
       );
    }
