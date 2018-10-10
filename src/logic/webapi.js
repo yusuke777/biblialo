@@ -1,8 +1,9 @@
 const webapi = require('superagent');
 
-webapi('https://www.googleapis.com/books/v1/volumes')
+webapi('https://connpass.com/api/v1/event')
    .query({
-      q: "haryy potter",
+      ymd: 20180911,
+      order: 3
    })
    .end(function(error, res){
       for(val of res.body.events){
