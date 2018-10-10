@@ -22,7 +22,7 @@ export default class DataStore {
 function getBookData(bookname){
     console.log(bookname);
     webapi('https://www.googleapis.com/books/v1/volumes')
-   .query('q=' + keyword + bookname + '&country=JP')
+   .query('q=' + bookname + '&country=JP')
    .end(function(error, res){
     console.log(res.body);
    });
