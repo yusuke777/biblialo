@@ -14,6 +14,21 @@ export default class DataStore {
      }
      @action changeBookSearchState = event => {
         this.bookSearchState = event.target.value;
+        if(this.bookSearchState = "Title"){
+            this.bookSearchState = "intitle:"
+        }
+        else if(this.bookSearchState = "Author"){
+            this.bookSearchState = "inauthor:"
+        }       
+        else if(this.bookSearchState = "Publisher"){
+            this.bookSearchState = "inpublisher:"
+        }
+        else if(this.bookSearchState = "ISBN code"){
+            this.bookSearchState = "isbn:"
+        }
+        else{
+            this.bookSearchState = "intitle:"
+        }
         console.log(this.bookSearchState);
      }
 
