@@ -8,22 +8,31 @@ export default class DataStore {
     @action changeValue = (unko) => {
        this.str = unko;
     }
+    getBookData(bookname){
+        console.log(bookname);
+        webapi('https://www.googleapis.com/books/v1/volumes')
+    .query('q=' + this.bookSearchState + bookname + '&country=JP')
+    .end(function(error, res){
+        console.log(res.body);
+    });
+    }
+
     @action eventHandle = () => {
         this.hoge = this.str;
-        getBookData(this.hoge);
+        this.getBookData(this.hoge);
      }
-     @action changeBookSearchState = event => {
+    @action changeBookSearchState = event => {
         this.bookSearchState = event.target.value;
-        if(this.bookSearchState = "Title"){
+        if(this.bookSearchState === "Title"){
             this.bookSearchState = "intitle:"
         }
-        else if(this.bookSearchState = "Author"){
+        else if(this.bookSearchState === "Author"){
             this.bookSearchState = "inauthor:"
         }       
-        else if(this.bookSearchState = "Publisher"){
+        else if(this.bookSearchState === "Publisher"){
             this.bookSearchState = "inpublisher:"
         }
-        else if(this.bookSearchState = "ISBN code"){
+        else if(this.bookSearchState === "ISBN code"){
             this.bookSearchState = "isbn:"
         }
         else{
@@ -32,13 +41,6 @@ export default class DataStore {
         console.log(this.bookSearchState);
      }
 
-}
 
-function getBookData(bookname){
-    console.log(bookname);
-    webapi('https://www.googleapis.com/books/v1/volumes')
-   .query('q=' + bookname + '&country=JP')
-   .end(function(error, res){
-    console.log(res.body);
-   });
-}
+
+    }
