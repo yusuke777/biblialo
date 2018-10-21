@@ -2,19 +2,13 @@ import {observable, computed, action} from 'mobx';
 import webapi from 'superagent';
 
 export default class DataStore {
+     
     @observable str = 'hoge';
     @observable hoge = 'hoge';
     @observable bookSearchState = 'intitle'
+
     @action changeValue = (unko) => {
        this.str = unko;
-    }
-    getBookData(bookname){
-        console.log(bookname);
-        webapi('https://www.googleapis.com/books/v1/volumes')
-    .query('q=' + this.bookSearchState + bookname + '&country=JP')
-    .end(function(error, res){
-        console.log(res.body);
-    });
     }
 
     @action eventHandle = () => {
@@ -24,23 +18,45 @@ export default class DataStore {
     @action changeBookSearchState = event => {
         this.bookSearchState = event.target.value;
         if(this.bookSearchState === "Title"){
-            this.bookSearchState = "intitle:"
+            this.searchKeyword = "intitle:"
         }
         else if(this.bookSearchState === "Author"){
-            this.bookSearchState = "inauthor:"
+            this.searchKeyword = "inauthor:"
         }       
         else if(this.bookSearchState === "Publisher"){
-            this.bookSearchState = "inpublisher:"
+            this.searchKeyword = "inpublisher:"
         }
         else if(this.bookSearchState === "ISBN code"){
-            this.bookSearchState = "isbn:"
+            this.searchKeyword = "isbn:"
         }
         else{
-            this.bookSearchState = "intitle:"
+            this.searchKeyword = "intitle:"
         }
-        console.log(this.bookSearchState);
-     }
+        console.log(this.searchKeyword);
 
+     }
+     @action getBookData(bookname){
+            console.log(bookname);
+            webapi('https://www.googleapis.com/books/v1/volumes')
+        .query('q=' + this.searchKeyword + bookname + '&country=JP')
+        .end(function(error, res){
+            let book_data_tbl = [];
+            for(let i = 0; i < res.body.items.length; i++){
+                let tmp_data = res.body.items[i].volumeInfo;
+                let book_data = {
+                    title: tmp_data.title,
+                    page_count: tmp_data.pageCount,
+                    published_date: tmp_data.publishedDate
+                }
+                book_data_tbl.push(book_data);
+            }
+            console.log(book_data_tbl);
+
+        });
+    }
+    searchKeyword() {
+        
+    }    
 
 
     }
