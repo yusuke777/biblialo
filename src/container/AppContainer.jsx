@@ -84,7 +84,7 @@ class AppContainer extends React.Component{
                 <Grid item xs={8}>
                     <Paper className={classes.paper}>
                         {value === 0 && <TabContainer>
-                            <CardComponent/>
+                            <CardComponent store={mystore}/>
                         </TabContainer>}
                         {value === 1 && <TabContainer>Item Two</TabContainer>}
                         {value === 2 && <TabContainer>Item Three</TabContainer>}

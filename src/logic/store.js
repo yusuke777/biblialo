@@ -44,12 +44,13 @@ export default class DataStore {
         .end(function(error, res){
             
             for(let i = 0; i < res.body.items.length; i++){
+                console.log('namai hentai');
                 let tmp_data = res.body.items[i].volumeInfo;
                 let book_data = {
                     title: tmp_data.title,
                     page_count: tmp_data.pageCount,
                     published_date: tmp_data.publishedDate,
-                    thumbnail : tmp_data.imageLinks,
+                    thumbnail: tmp_data.imageLinks
                 }
                 self.book_data_tbl.push(book_data);
             }
