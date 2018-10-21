@@ -33,10 +33,10 @@ class CardComponent extends React.Component {
     const { spacing } = this.state;
 
     return (
-      <Grid container className={classes.root} spacing={16}>
+      <Grid container className={classes.root} spacing={24}>
         <Grid item xs={12}>
-          <Grid container className={classes.demo} justify="center" spacing={Number(spacing)}>
-            {[0, 1, 2].map(value => (
+          <Grid container className={classes.demo} spacing={Number(spacing)}>
+            {[0, 1, 2, 3 ,4].map(value => (
               <Grid key={value} item>
                 <Paper className={classes.paper} />
               </Grid>

@@ -6,6 +6,7 @@ export default class DataStore {
     @observable str = 'hoge';
     @observable hoge = 'hoge';
     @observable bookSearchState = 'intitle'
+    @observable book_data_tbl = [];
 
     @action changeValue = (unko) => {
        this.str = unko;
@@ -37,20 +38,22 @@ export default class DataStore {
      }
      @action getBookData(bookname){
             console.log(bookname);
+            let self = this;
             webapi('https://www.googleapis.com/books/v1/volumes')
         .query('q=' + this.searchKeyword + bookname + '&country=JP')
         .end(function(error, res){
-            let book_data_tbl = [];
+            
             for(let i = 0; i < res.body.items.length; i++){
                 let tmp_data = res.body.items[i].volumeInfo;
                 let book_data = {
                     title: tmp_data.title,
                     page_count: tmp_data.pageCount,
-                    published_date: tmp_data.publishedDate
+                    published_date: tmp_data.publishedDate,
+                    thumbnail : tmp_data.imageLinks,
                 }
-                book_data_tbl.push(book_data);
+                self.book_data_tbl.push(book_data);
             }
-            console.log(book_data_tbl);
+            console.log(self.book_data_tbl);
 
         });
     }
