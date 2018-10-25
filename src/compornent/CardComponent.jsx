@@ -41,7 +41,7 @@ class CardComponent extends React.Component {
                                 <CardContent>
                                 <CardActionArea>
                                       <CardMedia
-                                      image={store.book_data_tbl[namai].thumbnail}
+                                       image={store.book_data_tbl[namai].thumbnail}
                                       />
                                     <Typography className={classes.title} color="textSecondary" gutterBottom>
                                     {store.book_data_tbl[namai].title}
