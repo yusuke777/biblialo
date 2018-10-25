@@ -82,7 +82,7 @@ class AppContainer extends React.Component{
                     </Paper>
                 </Grid>
                 <Grid item xs={8}>
-                    <Paper className={classes.paper}>
+                    <Paper>
                         {value === 0 && <TabContainer>
                             <CardComponent store={mystore}/>
                         </TabContainer>}

@@ -1,7 +1,7 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import {observer} from 'mobx-react';
-
+import Img from "../image/ImageLogo.png";
 
 const styles = theme => ({
    root: {
@@ -20,8 +20,12 @@ class AppContainer extends React.Component{
    render(){
       return (
         <div className={this.props.classes.root}>
-        <h1 >{this.props.store.hoge}</h1>
+        <img 
+          src = {Img} 
+          height={ 100 }
+        />
         </div>
+        
     );
    }
 }
