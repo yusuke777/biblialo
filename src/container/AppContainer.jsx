@@ -56,7 +56,7 @@ class AppContainer extends React.Component{
     const { value } = this.state;
       return (
          <div className={classes.root}>
-         <Paper className={classes.paper}>
+         <Paper>
             <Grid container spacing={8}>
                 <Grid item xs={12} >
                 <Paper className={classes.paper}>

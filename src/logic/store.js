@@ -53,7 +53,7 @@ export default class DataStore {
                 }
                 self.book_data_tbl.push(book_data);
             }
-            console.log(self.book_data_tbl);
+            console.log(self.book_data_tbl);            
         });
     }
     searchKeyword() {
