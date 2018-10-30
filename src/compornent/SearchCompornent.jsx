@@ -70,7 +70,7 @@ class SearchCompornent extends React.Component{
                     onChange={this.props.store.changeBookSearchState}
                   >
                     <MenuItem value={'Title'}>Title</MenuItem>
-                    <MenuItem value={'Author:'}>Author</MenuItem>
+                    <MenuItem value={'Author'}>Author</MenuItem>
                     <MenuItem value={'Publisher'}>Publisher</MenuItem>
                     <MenuItem value={'ISBN code'}>ISBN code</MenuItem>
                   </Select>

@@ -16,6 +16,7 @@ import ShoppingBasket from '@material-ui/icons/ShoppingBasket';
 import ThumbDown from '@material-ui/icons/ThumbDown';
 import ThumbUp from '@material-ui/icons/ThumbUp';
 import Typography from '@material-ui/core/Typography';
+import CardComponent from "../compornent/CardComponent";
 
 function TabContainer(props) {
     return (
@@ -55,7 +56,7 @@ class AppContainer extends React.Component{
     const { value } = this.state;
       return (
          <div className={classes.root}>
-         <Paper className={classes.paper}>
+         <Paper>
             <Grid container spacing={8}>
                 <Grid item xs={12} >
                 <Paper className={classes.paper}>
@@ -81,8 +82,10 @@ class AppContainer extends React.Component{
                     </Paper>
                 </Grid>
                 <Grid item xs={8}>
-                    <Paper className={classes.paper}>
-                        {value === 0 && <TabContainer>Item One</TabContainer>}
+                    <Paper>
+                        {value === 0 && <TabContainer>
+                            <CardComponent store={mystore}/>
+                        </TabContainer>}
                         {value === 1 && <TabContainer>Item Two</TabContainer>}
                         {value === 2 && <TabContainer>Item Three</TabContainer>}
                         {value === 3 && <TabContainer>Item Four</TabContainer>}
